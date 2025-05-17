@@ -8,6 +8,7 @@ import { TableContent } from "@/components/ui/table/Table";
 import { columnsUser } from "@/constant/column-user";
 import { useUserHook } from "@/hooks/useUserHook";
 import { flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table";
+import Link from "next/link";
 import { useState } from "react";
 
 
@@ -50,8 +51,6 @@ export function ListUser() {
         getCoreRowModel: getCoreRowModel(),
     })
 
-    console.log(user)
-
     return (
         <div className="space-y-4">
             <div className="flex items-center justify-between gap-4">
@@ -61,13 +60,14 @@ export function ListUser() {
                     onChange={(e) => setGlobalFilter(e.target.value)}
                     className="w-full max-w-sm "
                 />
-                <Button 
-                size="md" 
-                variant="primary"
-                
-                >
-                    Add User
-                </Button>
+                <Link href="/admin/user/add">
+                    <Button 
+                    size="md" 
+                    variant="primary" 
+                    >
+                        Add User
+                    </Button>
+                </Link>
             </div>
             {isLoading ?
                 <SkeletonTable columns={columnsUser} rowCount={10} />

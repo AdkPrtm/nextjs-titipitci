@@ -28,7 +28,7 @@ export function TableContent({ table, column, flexRender }: Readonly<TableConten
                         <TableRow key={headerGroup.id}>
                             {headerGroup.headers.map((header) => {
                                 return (
-                                    <TableHead key={header.id} colSpan={header.colSpan}>
+                                    <TableHead key={header.id} colSpan={header.colSpan} className="cursor-pointer">
                                         {header.isPlaceholder
                                             ? null
                                             : flexRender(

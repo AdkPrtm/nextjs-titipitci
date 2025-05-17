@@ -11,6 +11,8 @@ import { useResiHook } from "@/hooks/useResiHook"
 import { columnsResi } from "@/constant/column-resi"
 import SkeletonTable from "../../../components/ui/table/skeleton"
 import { TableContent } from "../../../components/ui/table/Table"
+import Link from "next/link"
+import Button from "@/components/ui/button/Button"
 
 interface DataTableProps<TData, TValue> {
     // columns: ColumnDef<TData, TValue>[]
@@ -64,12 +66,19 @@ export function ListResi<TData, TValue>({
 
     return (
         <div className="space-y-4">
+            <div className="flex items-center justify-between gap-4">
             <Input
                 placeholder="Search..."
                 defaultValue={globalFilter}
                 onChange={(e) => setGlobalFilter(e.target.value)}
-                className="w-full max-w-sm"
-            />
+                className="w-full max-w-sm "
+                />
+                <Link href="/admin/resi/add">
+                    <Button size="md" variant="primary">
+                        Add Resi
+                    </Button>
+                </Link>
+            </div>
             {isLoading ?
                 <SkeletonTable columns={columnsResi} rowCount={10} />
                 :
