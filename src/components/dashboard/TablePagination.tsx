@@ -30,7 +30,7 @@ interface DataTablePaginationProps<TData> {
 }
 
 export function DataTablePagination<TData>({
-  table,
+  // table,
   maxPage,
   onPage,
   onInit,

@@ -14,16 +14,22 @@ import { TableContent } from "../../../components/ui/table/Table"
 import Link from "next/link"
 import Button from "@/components/ui/button/Button"
 
-interface DataTableProps<TData, TValue> {
-    // columns: ColumnDef<TData, TValue>[]
-    // data: TData[]
-    // pageSize?: number
-}
+// interface DataTableProps<TData, TValue> {
+//     // columns: ColumnDef<TData, TValue>[]
+//     // data: TData[]
+//     // pageSize?: number
+// }
+// export function ListResi<TData, TValue>({
+//     // columns,
+//     // data,
+//     // pageSize = 10,
+// }: DataTableProps<TData, TValue>) {
+
 export function ListResi<TData, TValue>({
     // columns,
     // data,
     // pageSize = 10,
-}: DataTableProps<TData, TValue>) {
+}) {
 
     const [cursor, setCursor] = useState<number | null>(null);
     const [limit, setLimit] = useState<number>(10);

@@ -60,9 +60,9 @@ export const { handlers, signIn, signOut, auth, } = NextAuth({
 
     cookies: {
         sessionToken: {
-            name: 'token',
+            name: 'sessionToken',
             options: {
-                maxAge: 60 * 60 * 24 * 30
+                maxAge: 60 * 60 * 24
             },
         },
 

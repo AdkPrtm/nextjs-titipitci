@@ -12,9 +12,15 @@ export async function middleware(request: NextRequest) {
   if (!session && !isPublic) {
     return NextResponse.redirect(new URL('/signin', request.url));
   }
-
+  
+  if(session && session.expires){
+    const expiresAt = new Date(session?.expires ?? '').getTime();
+    console.log(expiresAt < Date.now());
+    if (expiresAt < Date.now()) return NextResponse.redirect(new URL('/signin', request.url));
+  }
+  
   if (session && isPublic) {
-    const role = session.user.role;
+    const role = session?.user.role;
     if (role === 'ADMIN') return NextResponse.redirect(new URL('/admin', request.url));
     if (role === 'CASHIER') return NextResponse.redirect(new URL('/cashier', request.url));
   }

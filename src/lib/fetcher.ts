@@ -1,12 +1,14 @@
 import { auth } from '@/auth';
 import { getSession } from 'next-auth/react';
+import { getCachedSession } from './session';
 
 export const csrFetchWithAuth = async (
     url: string,
     options: RequestInit = {}
 ) => {
-    const session = await getSession();
-    const token = session?.access_token;
+    const session = await getCachedSession(); 
+    const token = session?.access_token ;
+    // const token = 'session?.access_token' ;
 
     const defaultHeaders: HeadersInit = {
         Authorization: `Bearer ${token}`,

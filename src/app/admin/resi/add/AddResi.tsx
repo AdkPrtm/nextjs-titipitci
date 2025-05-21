@@ -1,9 +1,9 @@
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
-import { format, set } from "date-fns"
-import { CalendarIcon, Link, Loader2 } from "lucide-react"
-import { useForm, useFormContext } from "react-hook-form"
+import { format } from "date-fns"
+import { CalendarIcon, Loader2 } from "lucide-react"
+import { useForm } from "react-hook-form"
 import { z } from "zod"
 
 import { cn } from "@/lib/utils"
@@ -118,7 +118,7 @@ export function AddResiForm() {
 
         try {
             setIsProgress(true);
-            // await createResi.mutateAsync(data);  // Check if mutation was successful
+            await createResi.mutateAsync(data);  // Check if mutation was successful
 
             if (actionType === 'createMore') {
                 form.reset();

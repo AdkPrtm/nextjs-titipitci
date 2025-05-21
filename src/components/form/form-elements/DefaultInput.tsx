@@ -9,7 +9,7 @@ import DatePicker from '@/components/form/DatePicker';
 
 export default function DefaultInputs() {
   const [showPassword, setShowPassword] = useState(false);
-  const [isDisableCOD, setIsDisableCOD] = useState(false);
+  // const [isDisableCOD, setIsDisableCOD] = useState(false);
 
   const optionsUser = [
     { value: "1", label: "Andhika" },
